@@ -464,9 +464,9 @@ func (d *Drive) SetClean() error {
 	return errors.Wrap(err, "stsetcln")
 }
 
-func mtCmd(mtxcmd, dev string, args ...string) ([]byte, error) {
+func mtCmd(mtcmd, dev string, args ...string) ([]byte, error) {
 	cmdargs := append([]string{"-f", dev}, args...)
-	cmd := exec.Command(mtxcmd, cmdargs...)
+	cmd := exec.Command(mtcmd, cmdargs...)
 	stdout, err := cmd.StdoutPipe()
 	stderr, err := cmd.StderrPipe()
 	if err != nil {
